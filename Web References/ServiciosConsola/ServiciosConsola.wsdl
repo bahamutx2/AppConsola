@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ValidarUsuarioConsola">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuarioConsolaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidarUsuarioConsolaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerParametrosConfiguracion">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerParametrosConfiguracionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerParametrosConfiguracionResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActualizarParametros">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parametros" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarParametrosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarParametrosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearEditarModerador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearEditarModeradorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearEditarModeradorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInfoUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInfoUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerInfoUsuarioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarModerador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarModeradorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarModeradorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearEditarSector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="x1" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="y1" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="x2" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="y2" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="x3" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="y3" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="x4" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="y4" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearEditarSectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearEditarSectorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInfoSector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInfoSectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerInfoSectorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarSector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarSectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarSectorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearEditarCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreedit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearEditarCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearEditarCategoriaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInfoCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInfoCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerInfoCategoriaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCategoria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCategoriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarCategoriaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarHash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarHashResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarHashResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidarUsuarioConsolaSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioConsola" />
+  </wsdl:message>
+  <wsdl:message name="ValidarUsuarioConsolaSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioConsolaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerParametrosConfiguracionSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerParametrosConfiguracion" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerParametrosConfiguracionSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerParametrosConfiguracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarParametrosSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarParametros" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarParametrosSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarParametrosResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearEditarModeradorSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearEditarModerador" />
+  </wsdl:message>
+  <wsdl:message name="CrearEditarModeradorSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearEditarModeradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInfoUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInfoUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarModeradorSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarModerador" />
+  </wsdl:message>
+  <wsdl:message name="EliminarModeradorSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarModeradorResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearEditarSectorSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearEditarSector" />
+  </wsdl:message>
+  <wsdl:message name="CrearEditarSectorSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearEditarSectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInfoSectorSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoSector" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInfoSectorSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoSectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSectorSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarSector" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSectorSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarSectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearEditarCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearEditarCategoria" />
+  </wsdl:message>
+  <wsdl:message name="CrearEditarCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearEditarCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInfoCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoCategoria" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInfoCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerInfoCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCategoriaSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarCategoria" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCategoriaSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarHashSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarHash" />
+  </wsdl:message>
+  <wsdl:message name="GenerarHashSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarHashResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiciosConsolaSoap">
+    <wsdl:operation name="ValidarUsuarioConsola">
+      <wsdl:input message="tns:ValidarUsuarioConsolaSoapIn" />
+      <wsdl:output message="tns:ValidarUsuarioConsolaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerParametrosConfiguracion">
+      <wsdl:input message="tns:ObtenerParametrosConfiguracionSoapIn" />
+      <wsdl:output message="tns:ObtenerParametrosConfiguracionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarParametros">
+      <wsdl:input message="tns:ActualizarParametrosSoapIn" />
+      <wsdl:output message="tns:ActualizarParametrosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarModerador">
+      <wsdl:input message="tns:CrearEditarModeradorSoapIn" />
+      <wsdl:output message="tns:CrearEditarModeradorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoUsuario">
+      <wsdl:input message="tns:ObtenerInfoUsuarioSoapIn" />
+      <wsdl:output message="tns:ObtenerInfoUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarModerador">
+      <wsdl:input message="tns:EliminarModeradorSoapIn" />
+      <wsdl:output message="tns:EliminarModeradorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarSector">
+      <wsdl:input message="tns:CrearEditarSectorSoapIn" />
+      <wsdl:output message="tns:CrearEditarSectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoSector">
+      <wsdl:input message="tns:ObtenerInfoSectorSoapIn" />
+      <wsdl:output message="tns:ObtenerInfoSectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSector">
+      <wsdl:input message="tns:EliminarSectorSoapIn" />
+      <wsdl:output message="tns:EliminarSectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarCategoria">
+      <wsdl:input message="tns:CrearEditarCategoriaSoapIn" />
+      <wsdl:output message="tns:CrearEditarCategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoCategoria">
+      <wsdl:input message="tns:ObtenerInfoCategoriaSoapIn" />
+      <wsdl:output message="tns:ObtenerInfoCategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCategoria">
+      <wsdl:input message="tns:EliminarCategoriaSoapIn" />
+      <wsdl:output message="tns:EliminarCategoriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarHash">
+      <wsdl:input message="tns:GenerarHashSoapIn" />
+      <wsdl:output message="tns:GenerarHashSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiciosConsolaSoap" type="tns:ServiciosConsolaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidarUsuarioConsola">
+      <soap:operation soapAction="http://tempuri.org/ValidarUsuarioConsola" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerParametrosConfiguracion">
+      <soap:operation soapAction="http://tempuri.org/ObtenerParametrosConfiguracion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarParametros">
+      <soap:operation soapAction="http://tempuri.org/ActualizarParametros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarModerador">
+      <soap:operation soapAction="http://tempuri.org/CrearEditarModerador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoUsuario">
+      <soap:operation soapAction="http://tempuri.org/ObtenerInfoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarModerador">
+      <soap:operation soapAction="http://tempuri.org/EliminarModerador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarSector">
+      <soap:operation soapAction="http://tempuri.org/CrearEditarSector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoSector">
+      <soap:operation soapAction="http://tempuri.org/ObtenerInfoSector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSector">
+      <soap:operation soapAction="http://tempuri.org/EliminarSector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarCategoria">
+      <soap:operation soapAction="http://tempuri.org/CrearEditarCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoCategoria">
+      <soap:operation soapAction="http://tempuri.org/ObtenerInfoCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCategoria">
+      <soap:operation soapAction="http://tempuri.org/EliminarCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarHash">
+      <soap:operation soapAction="http://tempuri.org/GenerarHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiciosConsolaSoap12" type="tns:ServiciosConsolaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidarUsuarioConsola">
+      <soap12:operation soapAction="http://tempuri.org/ValidarUsuarioConsola" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerParametrosConfiguracion">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerParametrosConfiguracion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarParametros">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarParametros" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarModerador">
+      <soap12:operation soapAction="http://tempuri.org/CrearEditarModerador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerInfoUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarModerador">
+      <soap12:operation soapAction="http://tempuri.org/EliminarModerador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarSector">
+      <soap12:operation soapAction="http://tempuri.org/CrearEditarSector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoSector">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerInfoSector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSector">
+      <soap12:operation soapAction="http://tempuri.org/EliminarSector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearEditarCategoria">
+      <soap12:operation soapAction="http://tempuri.org/CrearEditarCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInfoCategoria">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerInfoCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCategoria">
+      <soap12:operation soapAction="http://tempuri.org/EliminarCategoria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarHash">
+      <soap12:operation soapAction="http://tempuri.org/GenerarHash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiciosConsola">
+    <wsdl:port name="ServiciosConsolaSoap" binding="tns:ServiciosConsolaSoap">
+      <soap:address location="http://www.ciudadcontradelincuencia.somee.com/ServiciosConsola.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiciosConsolaSoap12" binding="tns:ServiciosConsolaSoap12">
+      <soap12:address location="http://www.ciudadcontradelincuencia.somee.com/ServiciosConsola.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
